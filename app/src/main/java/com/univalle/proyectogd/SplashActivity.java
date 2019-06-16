@@ -4,13 +4,19 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class SplashActivity extends AppCompatActivity {
+
+    View Imagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        Imagen = findViewById(R.id.Imagen);
+        Imagen.animate().scaleX(3).scaleY(3).setDuration(1200).start();
 
         new Handler().postDelayed(new Runnable() {
             @Override
