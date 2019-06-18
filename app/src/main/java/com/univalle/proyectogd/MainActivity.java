@@ -7,23 +7,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnSalir;
+    Button btnIngresar;
+    EditText txtEmail, txtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        btnIngresar = (Button) findViewById(R.id.btnIngresar);
         btnSalir = (Button) findViewById(R.id.btnCerrarAplicacion);
+        txtEmail = (EditText) findViewById(R.id.txtEmail);
+        txtPassword = (EditText) findViewById(R.id.txtPassword);
+
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String e = txtEmail.getText().toString();
+                String p = txtPassword.getText().toString();
+                Intent siguiente  = new Intent(MainActivity.this,NavigationActivity.class);
+                if (e.equals("") && p.equals("")){
+                    startActivity(siguiente);
+                    finish();
+                }
+            }
+        });
+
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setIcon(R.mipmap.ic_launcher).setTitle("Alerta!!!").setMessage("Esta seguro de cerrar la aplicacion...").
                         setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -43,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
                         });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
-
-
             }
         });
     }

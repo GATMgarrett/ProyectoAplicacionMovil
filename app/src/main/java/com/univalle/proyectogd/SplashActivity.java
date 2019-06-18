@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Imagen = findViewById(R.id.Imagen);
-        Imagen.animate().scaleX(3).scaleY(3).setDuration(1200).start();
+        Imagen.animate().scaleX(10).scaleY(10).setDuration(1300).start();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -25,6 +25,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },1200);
+        },1300);
     }
 }
