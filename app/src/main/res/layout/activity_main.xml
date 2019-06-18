@@ -84,30 +84,6 @@
             android:textSize="14dp"
             app:backgroundTint="#B36C0D" />
 
-        <Button
-            android:id="@+id/btnSesionGoogle"
-            android:layout_width="269dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:text="registrate con google"
-            android:paddingLeft="25dp"
-            android:textColor="#FF131212"
-            android:textSize="12dp"
-            app:backgroundTint="#FAFBFC" />
-
-        <Button
-            android:id="@+id/btnSesionFacebook"
-            android:layout_width="269dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="15dp"
-            android:paddingLeft="25dp"
-            android:text="registrate con facebook"
-            android:textColor="#070707"
-            android:textSize="12dp"
-            app:backgroundTint="#FAFBFC" />
-
 
         <TextView
             android:id="@+id/txtRegistroLogin"
