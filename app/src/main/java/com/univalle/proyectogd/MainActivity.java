@@ -1,7 +1,12 @@
 package com.univalle.proyectogd;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,14 +17,20 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnSalir;
     Button btnIngresar;
+
+
     EditText txtEmail, txtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //private final int REQUEST_ACCESS_FINE = 0;
+
+        Button btnSalir;
+
         btnIngresar = (Button) findViewById(R.id.btnIngresar);
         btnSalir = (Button) findViewById(R.id.btnCerrarAplicacion);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -32,8 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 String p = txtPassword.getText().toString();
                 Intent siguiente  = new Intent(MainActivity.this,NavigationActivity.class);
                 if (e.equals("") && p.equals("")){
+                    Toast.makeText(MainActivity.this,"Secion iniciada correctamente...", Toast.LENGTH_SHORT).show();
                     startActivity(siguiente);
                     finish();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Error en el Inicio de secion...", Toast.LENGTH_SHORT).show();
                 }
             }
         });
