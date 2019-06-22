@@ -1,8 +1,11 @@
 package com.univalle.proyectogd;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.SupportActivity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,8 +17,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.google.android.gms.maps.SupportMapFragment;
+
 public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AFragment.OnFragmentInteractionListener, BFragment.OnFragmentInteractionListener, FormularioFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,18 @@ public class NavigationActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        Fragment fragment = new FormularioFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.content_main, fragment).commit();
+
+
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //Esto nos sirve para el mapa en pantalla
+       //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+
+
     }
 
     @Override
@@ -78,12 +94,19 @@ public class NavigationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        Fragment miFragment = null;
+        boolean fragmentSeleccionado = false;
+
         if (id == R.id.nav_home) {
             // Handle the camera action
+            miFragment = new FormularioFragment();
+            fragmentSeleccionado = true;
         } else if (id == R.id.nav_gallery) {
-
+            miFragment = new AFragment();
+            fragmentSeleccionado = true;
         } else if (id == R.id.nav_slideshow) {
-
+            miFragment = new BFragment();
+            fragmentSeleccionado = true;
         } else if (id == R.id.nav_tools) {
 
         } else if (id == R.id.nav_share) {
@@ -92,8 +115,17 @@ public class NavigationActivity extends AppCompatActivity
 
         }
 
+        if(fragmentSeleccionado = true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,miFragment).commit();
+        }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
