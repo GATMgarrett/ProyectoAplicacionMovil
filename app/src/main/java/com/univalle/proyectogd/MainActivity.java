@@ -13,9 +13,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Singleton
+    private static MainActivity Plataforma=null;
+    public static MainActivity getInstance(){
+        if (Plataforma==null){
+            Plataforma=new MainActivity();
+        }
+        return Plataforma;
+    }
+    //fin del singleton
 
     Button btnIngresar;
 
@@ -26,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //CARGANDO IMAGENES CON GLIDE
+        //ImageView imagen1=findViewById(R.id)
+
+
 
         //private final int REQUEST_ACCESS_FINE = 0;
 
