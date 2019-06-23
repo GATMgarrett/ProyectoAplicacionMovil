@@ -1,11 +1,14 @@
 package com.univalle.proyectogd;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.SupportActivity;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,6 +19,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.SupportMapFragment;
 
@@ -84,6 +88,27 @@ public class NavigationActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_salir){
+            AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
+            builder.setIcon(R.mipmap.ic_launcher).setTitle("Alerta!!!").setMessage("Esta seguro de cerrar la aplicacion...").
+                    setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(NavigationActivity.this,"Salida confirmada...", Toast.LENGTH_SHORT).show();
+                            Intent salida = new Intent( Intent.ACTION_MAIN); //Llamando a la activity principal
+                            finish(); // La cerramos.
+                        }
+                    }).
+                    setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(NavigationActivity.this,"Salida cancelada...", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -107,12 +132,14 @@ public class NavigationActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             miFragment = new BFragment();
             fragmentSeleccionado = true;
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
+        }  else if (id == R.id.nav_share) {
+            Uri uri = Uri.parse("https://www.facebook.com/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         } else if (id == R.id.nav_send) {
-
+            Uri uri = Uri.parse("https://twitter.com/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         }
 
         if(fragmentSeleccionado = true){
