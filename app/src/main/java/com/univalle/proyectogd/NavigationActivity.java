@@ -21,7 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.SupportMapFragment;
+//import com.google.android.gms.maps.SupportMapFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AFragment.OnFragmentInteractionListener, BFragment.OnFragmentInteractionListener, FormularioFragment.OnFragmentInteractionListener {
