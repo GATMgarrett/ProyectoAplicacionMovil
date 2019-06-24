@@ -13,8 +13,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +31,11 @@ public class MainActivity extends AppCompatActivity {
     //fin del singleton
 
     Button btnIngresar;
-
-
     EditText txtEmail, txtPassword;
+
+    ImageButton atras;
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,27 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnSalir;
 
+        //Uso del Toolbar
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        atras = findViewById(R.id.btnAtras);
+
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setTitle("");
+        toolbar.setSubtitle("");
+
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent atras = new Intent(MainActivity.this,NavigationActivity.class);
+                startActivity(atras);
+                finish();
+            }
+        });
+        //Fin del Toolbar
         btnIngresar = (Button) findViewById(R.id.btnIngresar);
         btnSalir = (Button) findViewById(R.id.btnCerrarAplicacion);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
