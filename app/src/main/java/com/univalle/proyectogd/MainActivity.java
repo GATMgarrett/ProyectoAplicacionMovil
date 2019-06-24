@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         //CARGANDO IMAGENES CON GLIDE
         //Ir a la actividad de Imagenes
-        Button img = findViewById(R.id.btnImagenes);
+        /*Button img = findViewById(R.id.btnImagenes);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,11 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(imagenes);
                 finish();
             }
-        });
+        });*/
 
         //private final int REQUEST_ACCESS_FINE = 0;
-        //hola
-
         //final Button servicio=findViewById(R.id.btnIniciarServicios);
         servicio = (Button)findViewById(R.id.btnIniciarServicio);
 
