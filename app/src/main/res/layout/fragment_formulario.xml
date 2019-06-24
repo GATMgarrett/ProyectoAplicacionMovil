@@ -18,23 +18,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="sans-serif-black"
             android:text="Restaurantes"
             android:textSize="25sp" />
         <SearchView
             android:layout_width="match_parent"
             android:background="#83F7F4F4"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"></SearchView>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-black"
             android:text="Comidas"
             android:textSize="25sp" />
