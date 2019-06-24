@@ -76,7 +76,7 @@
             android:textColor="#F8F7F7"
             android:textSize="14dp"
             app:backgroundTint="#B36C0D" />
-        <Button
+        <!--<Button
             android:id="@+id/btnImagenes"
             android:layout_width="269dp"
             android:layout_height="50dp"
@@ -85,7 +85,7 @@
             android:text="Imagenes..."
             android:textColor="#F8F7F7"
             android:textSize="14dp"
-            app:backgroundTint="#B36C0D" />
+            app:backgroundTint="#B36C0D" />-->
 
 
     </LinearLayout>

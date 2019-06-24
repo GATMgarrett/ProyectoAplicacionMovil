@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     EditText txtEmail, txtPassword;
     ImageButton atras;
     Button servicio;
+    Button btnatras;
     private Toolbar toolbar;
 
     @Override
@@ -33,6 +34,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        atras = (ImageButton) findViewById(R.id.btnAtras);
+
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(MainActivity.this,NavigationActivity.class);
+                Toast.makeText(MainActivity.this,"Pagina principal...", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+                //finish();
+            }
+        });
         //CARGANDO IMAGENES CON GLIDE
         //Ir a la actividad de Imagenes
         /*Button img = findViewById(R.id.btnImagenes);
