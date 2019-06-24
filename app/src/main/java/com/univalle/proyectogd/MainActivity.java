@@ -32,9 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnIngresar;
     EditText txtEmail, txtPassword;
-
     ImageButton atras;
-
+    Button servicio;
     private Toolbar toolbar;
 
     @Override
@@ -45,77 +44,28 @@ public class MainActivity extends AppCompatActivity {
         //CARGANDO IMAGENES CON GLIDE
         //ImageView imagen1=findViewById(R.id)
 
-
-
         //private final int REQUEST_ACCESS_FINE = 0;
 
-        Button btnSalir;
+        //final Button servicio=findViewById(R.id.btnIniciarServicios);
+        servicio = (Button)findViewById(R.id.btnIniciarServicio);
 
-        //Uso del Toolbar
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        atras = findViewById(R.id.btnAtras);
-
-        toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setTitle("");
-        toolbar.setSubtitle("");
-
-        atras.setOnClickListener(new View.OnClickListener() {
+        servicio.setOnClickListener(new View.OnClickListener() {
+            boolean ban=false;
             @Override
-            public void onClick(View v) {
-                Intent atras = new Intent(MainActivity.this,NavigationActivity.class);
-                startActivity(atras);
-                finish();
-            }
-        });
-        //Fin del Toolbar
-        btnIngresar = (Button) findViewById(R.id.btnIngresar);
-        btnSalir = (Button) findViewById(R.id.btnCerrarAplicacion);
-        txtEmail = (EditText) findViewById(R.id.txtEmail);
-        txtPassword = (EditText) findViewById(R.id.txtPassword);
+            public void onClick(View view) {
 
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String e = txtEmail.getText().toString();
-                String p = txtPassword.getText().toString();
-                Intent siguiente  = new Intent(MainActivity.this,NavigationActivity.class);
-                if (e.equals("") && p.equals("")){
-                    Toast.makeText(MainActivity.this,"Secion iniciada correctamente...", Toast.LENGTH_SHORT).show();
-                    startActivity(siguiente);
-                    finish();
+                if (ban==false){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Servicio Iniciado", Toast.LENGTH_SHORT);
+                    toast.show();
+                    startService(new Intent(MainActivity.this,ServicioEjemplo.class));
+                    ban=true;
                 }
-                else {
-                    Toast.makeText(MainActivity.this,"Error en el Inicio de secion...", Toast.LENGTH_SHORT).show();
+                else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Servicio Finalizado", Toast.LENGTH_SHORT);
+                    toast.show();
+                    stopService(new Intent(MainActivity.this,ServicioEjemplo.class));
+                    ban=false;
                 }
-            }
-        });
-
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setIcon(R.mipmap.ic_launcher).setTitle("Alerta!!!").setMessage("Esta seguro de cerrar la aplicacion...").
-                        setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(MainActivity.this,"Salida confirmada...", Toast.LENGTH_SHORT).show();
-                                Intent salida = new Intent( Intent.ACTION_MAIN); //Llamando a la activity principal
-                                finish(); // La cerramos.
-                            }
-                        }).
-                        setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(MainActivity.this,"Salida cancelada...", Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                            }
-                        });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
             }
         });
     }
