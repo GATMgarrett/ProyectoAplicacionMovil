@@ -1,25 +1,21 @@
 package com.univalle.proyectogd;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link BFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link BFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -51,20 +47,79 @@ public class BFragment extends Fragment {
         return fragment;
     }
 
+
+    // Codigo no generado...
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
+    Button btnIngresar;
+    EditText txtEmail, txtPassword;
+    Button btnSalir;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_b, container, false);
+        View view = inflater.inflate(R.layout.fragment_b, container, false);
+
+
+        btnIngresar = (Button) view.findViewById(R.id.btnIngresar);
+        btnSalir = (Button) view.findViewById(R.id.btnCerrarAplicacion);
+        txtEmail = (EditText) view.findViewById(R.id.txtEmail);
+        txtPassword = (EditText) view.findViewById(R.id.txtPassword);
+
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String e = txtEmail.getText().toString();
+                String p = txtPassword.getText().toString();
+               /* Intent siguiente  = new Intent(MainActivity.this,NavigationActivity.class);
+                if (e.equals("") && p.equals("")){
+                    Toast.makeText(MainActivity.this,"Secion iniciada correctamente...", Toast.LENGTH_SHORT).show();
+                    startActivity(siguiente);
+                    finish();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Error en el Inicio de secion...", Toast.LENGTH_SHORT).show();
+                }*/
+            }
+        });
+
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /*AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setIcon(R.mipmap.ic_launcher).setTitle("Alerta!!!").setMessage("Esta seguro de cerrar la aplicacion...").
+                        setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(MainActivity.this,"Salida confirmada...", Toast.LENGTH_SHORT).show();
+                                Intent salida = new Intent( Intent.ACTION_MAIN); //Llamando a la activity principal
+                                finish(); // La cerramos.
+                            }
+                        }).
+                        setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(MainActivity.this,"Salida cancelada...", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();*/
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
