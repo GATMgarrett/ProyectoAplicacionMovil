@@ -136,10 +136,12 @@ public class NavigationActivity extends AppCompatActivity
             Uri uri = Uri.parse("https://www.facebook.com/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
+            fragmentSeleccionado = true;
         } else if (id == R.id.nav_send) {
             Uri uri = Uri.parse("https://twitter.com/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
+            fragmentSeleccionado = true;
         }
 
         if(fragmentSeleccionado = true){
