@@ -72,7 +72,17 @@
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:layout_gravity="center"
-            android:text="ingresar"
+            android:text="Servicio..."
+            android:textColor="#F8F7F7"
+            android:textSize="14dp"
+            app:backgroundTint="#B36C0D" />
+        <Button
+            android:id="@+id/btnImagenes"
+            android:layout_width="269dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:text="Imagenes..."
             android:textColor="#F8F7F7"
             android:textSize="14dp"
             app:backgroundTint="#B36C0D" />

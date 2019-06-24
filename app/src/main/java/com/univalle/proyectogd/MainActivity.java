@@ -42,7 +42,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //CARGANDO IMAGENES CON GLIDE
-        //ImageView imagen1=findViewById(R.id)
+        //Ir a la actividad de Imagenes
+        Button img = findViewById(R.id.btnImagenes);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent imagenes = new Intent(MainActivity.this, com.univalle.proyectogd.imagenes.class);
+                startActivity(imagenes);
+                finish();
+            }
+        });
 
         //private final int REQUEST_ACCESS_FINE = 0;
 
