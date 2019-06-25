@@ -17,9 +17,9 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.Toolbar; //libreria para el toolbar se genera automaticamente
 import android.view.Menu;
-import android.widget.Toast;
+import android.widget.Toast; //Toast son los mensajes que se muetran por un tiempo
 
 //import com.google.android.gms.maps.SupportMapFragment;
 
@@ -30,7 +30,7 @@ public class NavigationActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar); //se genera
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -63,7 +63,7 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) { //menu del clostadito
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
@@ -77,14 +77,14 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings) { //Ajustes
             Intent siguiente  = new Intent(NavigationActivity.this,MainActivity.class);
-            Toast.makeText(NavigationActivity.this,"Ajustes...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NavigationActivity.this,"Ajustes...", Toast.LENGTH_SHORT).show();//nos da un mensaje
             startActivity(siguiente);
             finish();
             return true;
         }
-        if (id == R.id.action_salir){
+        if (id == R.id.action_salir){ //si presiona salir
             AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
             builder.setIcon(R.mipmap.ic_launcher).setTitle("Alerta!!!").setMessage("Esta seguro de cerrar la aplicacion...").
                     setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -110,7 +110,7 @@ public class NavigationActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) { //menu principal
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -119,31 +119,31 @@ public class NavigationActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-            miFragment = new FormularioFragment();
+            miFragment = new FormularioFragment();//si es cierto se va al fragmento formulario
             fragmentSeleccionado = true;
         } else if (id == R.id.nav_gallery) {
-            miFragment = new AFragment();
+            miFragment = new AFragment(); //se va  a pedidos
             fragmentSeleccionado = true;
         } else if (id == R.id.nav_slideshow) {
-            miFragment = new BFragment();
+            miFragment = new BFragment();// se va a registrarse
             fragmentSeleccionado = true;
         }  else if (id == R.id.nav_share) {
-            Uri uri = Uri.parse("https://www.facebook.com/");
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            Uri uri = Uri.parse("https://www.facebook.com/"); //declaranado variable
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri); // se va  a facebook
             startActivity(intent);
             fragmentSeleccionado = true;
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_send) { // se va  atwiter
             Uri uri = Uri.parse("https://twitter.com/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             fragmentSeleccionado = true;
         }
 
-        if(fragmentSeleccionado = true){
+        if(fragmentSeleccionado = true){ //si selecciona algo
             getSupportFragmentManager().beginTransaction().replace(R.id.content_main,miFragment).commit();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout); //
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

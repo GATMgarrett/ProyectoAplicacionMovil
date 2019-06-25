@@ -16,15 +16,15 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Imagen = findViewById(R.id.Imagen);
-        Imagen.animate().scaleX(10).scaleY(10).setDuration(1300).start();
+        Imagen.animate().scaleX(10).scaleY(10).setDuration(1300).start();//apariencia de la animacion de 1.3 segundos
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this,NavigationActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(SplashActivity.this,NavigationActivity.class);// header para ir a otra actividad en este caso a Navigation
+                startActivity(intent); //comienz a ejecutar el intent
                 finish();
             }
-        },1300);
+        },1300); //todo el proceo lo hace en 1.3 seg.
     }
 }
