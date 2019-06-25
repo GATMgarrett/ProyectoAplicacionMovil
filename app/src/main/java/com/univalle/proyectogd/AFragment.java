@@ -131,7 +131,7 @@ public class AFragment extends Fragment {
             osw.write(Resultado.toString());
             osw.flush();
             osw.close();
-            Toast.makeText(getActivity(), "Los datos fueron grabados correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Los datos fueron grabados correctamente...", Toast.LENGTH_SHORT).show();
             Resultado.setText("");
         } catch (IOException ioe) {
             Toast.makeText(getActivity(), "No se pudo grabar", Toast.LENGTH_SHORT).show();
