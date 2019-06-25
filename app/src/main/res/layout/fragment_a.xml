@@ -8,6 +8,61 @@
     tools:context=".AFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:textColor="#ffff"
+        android:text="@string/PorcionPapas"/>
+        <EditText
+            android:layout_width="200dp"
+            android:background="#3BFFFFFF"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/PorcionPapas"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:textColor="#ffff"
+            android:text="@string/Pollo"/>
+        <EditText
+            android:layout_width="200dp"
+            android:background="#3BFFFFFF"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Pollo"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="@string/Calcular"
+            android:background="#E44134"
+            android:id="@+id/btnCalcular"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:textColor="#ffff"
+            android:text="@string/resultado"/>
 
+        <TextView
+            android:id="@+id/txtResultado"
+            android:background="#3BFFFFFF"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </FrameLayout>

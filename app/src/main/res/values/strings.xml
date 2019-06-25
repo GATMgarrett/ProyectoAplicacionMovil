@@ -18,4 +18,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_salir">Salir</string>
     <string name="btnRegistrarse">Registrarse</string>
+    <string name="Unidad">Unidad</string>
+    <string name="Calcular">Calcular</string>
+    <string name="resultado">Resultado</string>
+    <string name="PorcionPapas">Porcion de Papas - 5Bs</string>
+    <string name="Pollo">Pollo - 12Bs</string>
 </resources>

@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -63,12 +66,43 @@ public class AFragment extends Fragment {
 
 
     }
-
+    Button calcular;
+    EditText porcionPapas, pollo;
+    TextView Resultado;
+    Double UnidadPapas, UnidadPollo, Res1, Res2, Res;
+    String val;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_a, container, false);
+        View view = inflater.inflate(R.layout.fragment_a, container, false);
+        Resultado = (TextView) view.findViewById(R.id.txtResultado);
+        calcular = (Button) view.findViewById(R.id.btnCalcular);
+        porcionPapas = (EditText) view.findViewById(R.id.PorcionPapas);
+        pollo = (EditText) view.findViewById(R.id.Pollo);
+
+        calcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    String auxPapas = porcionPapas.getText().toString();
+                    UnidadPapas = Double.parseDouble(auxPapas);
+                }catch (NumberFormatException nfe){}
+                try{
+                    String auxPollo = pollo.getText().toString();
+                    UnidadPollo = Double.parseDouble(auxPollo);
+                }catch (NumberFormatException nfe){}
+
+                Res1 = (UnidadPapas * 5);
+                Res2 = (UnidadPollo * 12);
+                Res = Res1 + Res2;
+                val = String.valueOf(Res);
+                Resultado.setText(val + "Bs");
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
