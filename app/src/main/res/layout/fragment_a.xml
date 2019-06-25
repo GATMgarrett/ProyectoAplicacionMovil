@@ -63,6 +63,14 @@
             android:layout_width="200dp"
             android:textSize="25dp"
             android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:text="@string/Imprimir"
+            android:background="#E44134"
+            android:id="@+id/btnGuardar"/>
     </LinearLayout>
 
 </FrameLayout>

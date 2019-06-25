@@ -3,6 +3,7 @@ package com.univalle.proyectogd;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 
 /**
@@ -66,11 +73,12 @@ public class AFragment extends Fragment {
 
 
     }
-    Button calcular;
+    Button calcular, imprimir;
     EditText porcionPapas, pollo;
     TextView Resultado;
     Double UnidadPapas, UnidadPollo, Res1, Res2, Res;
     String val;
+    private EditText et1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -97,12 +105,37 @@ public class AFragment extends Fragment {
                 Res2 = (UnidadPollo * 12);
                 Res = Res1 + Res2;
                 val = String.valueOf(Res);
-                Resultado.setText(val + "Bs");
+                Resultado.setText("Total a pagar: " + val + "Bs");
             }
         });
 
-
+        imprimir = (Button) view.findViewById(R.id.btnGuardar);
+        imprimir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                grabar(Resultado);
+            }
+        });
         return view;
+    }
+    public void grabar(View view) {
+        String nomarchivo = Resultado.getText().toString();
+
+        try {
+            File tarjeta = Environment.getExternalStorageDirectory();
+
+            //Toast.makeText(this,tarjeta.getAbsolutePath(),Toast.LENGTH_LONG).show();
+            File file = new File(tarjeta.getAbsolutePath(), nomarchivo);
+            OutputStreamWriter osw = new OutputStreamWriter(
+                    new FileOutputStream(file));
+            osw.write(Resultado.toString());
+            osw.flush();
+            osw.close();
+            Toast.makeText(getActivity(), "Los datos fueron grabados correctamente", Toast.LENGTH_SHORT).show();
+            Resultado.setText("");
+        } catch (IOException ioe) {
+            Toast.makeText(getActivity(), "No se pudo grabar", Toast.LENGTH_SHORT).show();
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
