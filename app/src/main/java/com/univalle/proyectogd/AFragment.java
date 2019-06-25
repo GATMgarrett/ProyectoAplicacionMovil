@@ -134,7 +134,7 @@ public class AFragment extends Fragment {
             Toast.makeText(getActivity(), "Los datos fueron grabados correctamente...", Toast.LENGTH_SHORT).show();
             Resultado.setText("");
         } catch (IOException ioe) {
-            Toast.makeText(getActivity(), "No se pudo grabar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "No se pudo grabar...", Toast.LENGTH_SHORT).show();
         }
     }
 
