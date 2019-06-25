@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton atras;
     Button servicio;
     Button btnatras;
+    Button btnDato;
     private Toolbar toolbar;
 
     @Override
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 //finish();
             }
         });
+
         //CARGANDO IMAGENES CON GLIDE
         //Ir a la actividad de Imagenes
         /*Button img = findViewById(R.id.btnImagenes);
