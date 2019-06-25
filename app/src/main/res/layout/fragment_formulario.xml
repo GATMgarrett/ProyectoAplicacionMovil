@@ -26,7 +26,7 @@
             android:textSize="25sp" />
         <SearchView
             android:layout_width="245dp"
-            android:background="#83F7F4F4"
+            android:background="#2AF7F4F4"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
@@ -42,17 +42,19 @@
             android:text="Comidas"
             android:textSize="25sp" />
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/pollos_copacabana_logo"/>
-        <ImageView
+            android:id="@+id/ImageDonPollo"
             android:layout_width="200dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:src="@drawable/don_pollo"/>
+        <ImageView
+            android:id="@+id/ImagePollosCopacabana"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/pollos_copacabana_logo"/>
     </LinearLayout>
 
 </LinearLayout>
